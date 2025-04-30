@@ -634,7 +634,19 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {},
+        ts_ls = {
+          on_attach = function(client, bufnr)
+            -- Configurações do on_attach, se necessário
+          end,
+          capabilities = capabilities, -- Suas capacidades, como completions, etc.
+          settings = {
+            typescript = {
+              -- tsdk = '/path/to/your/typescript/lib', -- Se você tiver um SDK específico
+            },
+            -- Configurações adicionais do LSP, se necessário
+          },
+        },
+
         --
 
         lua_ls = {
